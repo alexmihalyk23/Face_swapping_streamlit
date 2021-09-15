@@ -4,9 +4,11 @@ import numpy as np
 from cvzone.FaceMeshModule import FaceMeshDetector
 import os
 from PIL import Image
-from streamlit_webrtc import VideoTransformerBase, webrtc_streamer
+from streamlit_webrtc import RTCConfiguration,VideoProcessorBase, webrtc_streamer
 
-
+RTC_CONFIGURATION = RTCConfiguration(
+    {"iceServers": [{"urls": ["stun:stun.l.google.com:19302"]}]}
+)
 
 
 def extract_index_nparray(nparray):
@@ -67,7 +69,7 @@ if uploaded_file is not None:
             indexes_triangles.append(triangle)
 
 
-class VideoTransformer(VideoTransformerBase):
+class VideoTransformer(VideoProcessorBase):
     def __init__(self):
         self.option = 'Наложение'
     def transform(self, frame):
