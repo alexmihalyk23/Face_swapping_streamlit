@@ -166,6 +166,6 @@ class VideoTransformer(VideoTransformerBase):
 
 
 
-ctx = webrtc_streamer(key="example", video_transformer_factory=VideoTransformer)
+ctx = webrtc_streamer(key="example", video_processor_factory=VideoTransformer)
 if ctx.video_transformer:
     ctx.video_transformer.option =st.radio('Тип вывода замены лица', ['Наложение', 'Приведение к среднему цвету'])
