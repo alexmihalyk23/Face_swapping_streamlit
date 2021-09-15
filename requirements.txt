@@ -5,3 +5,4 @@ mediapipe
 cvzone
 pillow
 streamlit-webrtc
+opencv-python-headless
