@@ -67,16 +67,6 @@ if uploaded_file is not None:
             indexes_triangles.append(triangle)
 
 
-# class VideoFaceSwapper(VideoTransformerBase):
-#     # def __init__(self):
-#     def detect(self, frame):
-#         img2 = frame.to_ndarray(format="bgr24")
-#         img2_gray = cv2.cvtColor(img2, cv2.COLOR_BGR2GRAY)
-#         img2_new_face = np.zeros_like(img2)
-#         detector = FaceMeshDetector()
-#         return img2_gray
-
-
 class VideoTransformer(VideoTransformerBase):
     def __init__(self):
         self.option = 'Наложение'
@@ -176,17 +166,6 @@ class VideoTransformer(VideoTransformerBase):
 
 
 
-
-
-
-
-
-
-
-
-
-
 ctx = webrtc_streamer(key="example", video_transformer_factory=VideoTransformer)
 if ctx.video_transformer:
     ctx.video_transformer.option =st.radio('Тип вывода замены лица', ['Наложение', 'Приведение к среднему цвету'])
-# webrtc_streamer(key="example",video_transformer_factory=VideoFaceSwapper)
