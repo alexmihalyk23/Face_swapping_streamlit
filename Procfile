@@ -1,1 +1,1 @@
-web: sh setup.sh && streamlit run main.py server.enableXsrfProtection=false --server.port=80
+web: sh setup.sh && streamlit run main.py server.enableXsrfProtection=false --server.enableWebsocketCompression=false
