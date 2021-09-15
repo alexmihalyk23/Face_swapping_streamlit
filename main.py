@@ -68,7 +68,6 @@ if uploaded_file is not None:
             triangle = [index_pt1, index_pt2, index_pt3]
             indexes_triangles.append(triangle)
 
-
 class VideoTransformer(VideoProcessorBase):
     def __init__(self):
         self.option = 'Наложение'
