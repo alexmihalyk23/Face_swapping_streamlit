@@ -4,7 +4,7 @@ import numpy as np
 from cvzone.FaceMeshModule import FaceMeshDetector
 import os
 from PIL import Image
-from streamlit_webrtc import RTCConfiguration,VideoProcessorBase, webrtc_streamer
+from streamlit_webrtc import RTCConfiguration,VideoProcessorBase, webrtc_streamer, WebRtcMode
 
 RTC_CONFIGURATION = RTCConfiguration(
     {"iceServers": [{"urls": ["stun:stun.l.google.com:19302"]}]}
@@ -165,6 +165,6 @@ class VideoTransformer(VideoProcessorBase):
         except:
             return img
 
-ctx = webrtc_streamer(key="example", video_processor_factory=VideoTransformer)
+ctx = webrtc_streamer(key="example", mode=WebRtcMode.SENDRECV,rtc_configuration=RTC_CONFIGURATION,video_processor_factory=VideoTransformer)
 if ctx.video_transformer:
     ctx.video_transformer.option =st.radio('Тип вывода замены лица', ['Наложение', 'Приведение к среднему цвету'])
